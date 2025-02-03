@@ -1,0 +1,1 @@
+FLAG{cookie_monster_hacked}
