@@ -1,0 +1,10 @@
+version: '3'
+services:
+  numbers:
+    build:
+      context: .
+    image: directory_traversal
+    working_dir: /home/ctf
+    container_name: web_directory_traversal
+    ports:
+      - "36082:36082"
