@@ -94,6 +94,36 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.reverse.rule=Host(`reverse.ctf.dscjssstuniv.in`)"  # Routing for this challenge
 
+   file:
+    build:
+      context: coding/File_Magic/src
+    image: file_magic
+    restart: always
+    working_dir: /home/ctf
+    container_name: file_magic
+    ports:
+      - "54120:54120"
+    networks:
+      - ctf_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.file_magic.rule=Host(`file_magic.ctf.dscjssstuniv.in`)"  # Routing for this challenge
+
+   steganography:
+    build:
+      context: coding/Steganography_Secrets/src
+    image: steganography_secrets
+    restart: always
+    working_dir: /home/ctf
+    container_name: steganography_secrets
+    ports:
+      - "59320:59320"
+    networks:
+      - ctf_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.steganography.rule=Host(`steganography.ctf.dscjssstuniv.in`)"  # Routing for this challenge
+
   conditions:
     build:
       context: Web/Conditions/src
@@ -108,6 +138,51 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.conditions.rule=Host(`conditions.ctf.dscjssstuniv.in`)"  # Routing for this challenge
+
+  cookie:
+    build:
+      context: Web/Cookie_Monster/src
+    image: cookie
+    restart: always
+    working_dir: /home/ctf
+    container_name: web_cookie_monster
+    ports:
+      - "42558:42558"
+    networks:
+      - ctf_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.cookie.rule=Host(`cookie.ctf.dscjssstuniv.in`)"  # Routing for this challenge
+
+  directory:
+    build:
+      context: Web/Directory_Traversal/src
+    image: directory_traversal
+    restart: always
+    working_dir: /home/ctf
+    container_name: web_directory_traversal
+    ports:
+      - "47558:47558"
+    networks:
+      - ctf_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.directory.rule=Host(`directory.ctf.dscjssstuniv.in`)"  # Routing for this challenge
+
+  javascript:
+    build:
+      context: Web/Javascript_Debugger/src
+    image: javascript_debugger
+    restart: always
+    working_dir: /home/ctf
+    container_name: web_javascript_debugger
+    ports:
+      - "47358:47358"
+    networks:
+      - ctf_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.javascript.rule=Host(`javascript.ctf.dscjssstuniv.in`)"  # Routing for this challenge
 
   web_numbers:
     build:

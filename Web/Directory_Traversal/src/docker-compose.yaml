@@ -7,4 +7,4 @@ services:
     working_dir: /home/ctf
     container_name: web_directory_traversal
     ports:
-      - "36082:36082"
+      - "47558:47558"

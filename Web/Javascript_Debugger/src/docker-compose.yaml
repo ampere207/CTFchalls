@@ -7,4 +7,4 @@ services:
     working_dir: /home/ctf
     container_name: web_javascript_debugger
     ports:
-      - "36082:36082"
+      - "47358:47358"
